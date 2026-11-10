@@ -1,0 +1,296 @@
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-plus-jakarta-sans: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-caveat: 'Caveat', cursive, sans-serif;
+  --bg-primary: #FFF8F1;
+  --bg-secondary: #F3E8DD;
+  --text-primary: #22201F;
+  --color-charcoal: #292524;
+  --color-bronze: #B87320;
+  --color-gold: #D69A42;
+  --color-gold-border: #D7A257;
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: #FFF8F1;
+  color: #22201F;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background-color: #FFF8F1;
+  color: #22201F;
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+/* Custom button and gradient styles matching the reference */
+.btn-gold-gradient {
+  background: linear-gradient(135deg, #B87320 0%, #C98835 50%, #9B5D14 100%);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn-gold-gradient:hover {
+  background: linear-gradient(135deg, #A86518 0%, #BA7B28 50%, #8A500F 100%);
+  transform: translateY(-1px);
+  box-shadow: 0 10px 20px -5px rgba(184, 115, 32, 0.4);
+}
+
+.btn-gold-gradient:active {
+  transform: translateY(0);
+}
+
+.btn-outline-bronze {
+  background: rgba(255, 255, 255, 0.7);
+  border: 1.5px solid #B87320;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn-outline-bronze:hover {
+  background: rgba(214, 154, 66, 0.12);
+  border-color: #9B5D14;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px -4px rgba(184, 115, 32, 0.25);
+}
+
+.btn-outline-bronze:active {
+  transform: translateY(0);
+}
+
+/* Gold text gradient */
+.text-gold-gradient {
+  background: linear-gradient(135deg, #B87320 0%, #D69A42 60%, #A86518 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Clinic badge styling */
+.clinic-badge {
+  background: #FFFDF9;
+  border: 1px solid rgba(215, 162, 87, 0.6);
+  box-shadow: 0 2px 8px -2px rgba(184, 115, 32, 0.08);
+}
+
+/* Subtle background glow */
+.hero-radial-glow {
+  background: radial-gradient(circle at 75% 40%, rgba(214, 154, 66, 0.18) 0%, rgba(255, 248, 241, 0) 65%);
+}
+
+/* Hero Entrance & Interactive Animations */
+@keyframes heroFadeUp {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 26px, 0);
+  }
+  100% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes heroFadeLeft {
+  0% {
+    opacity: 0;
+    transform: translate3d(-24px, 0, 0);
+  }
+  100% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes heroPortraitIn {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 36px, 0) scale(0.97);
+  }
+  100% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+}
+
+@keyframes heroBgFade {
+  0% {
+    opacity: 0;
+    transform: scale(1.02);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes goldLineExpand {
+  0% {
+    width: 0;
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes heroGlowPulse {
+  0%, 100% {
+    box-shadow: 0 10px 25px -5px rgba(184, 115, 32, 0.35), 0 8px 10px -6px rgba(184, 115, 32, 0.2);
+  }
+  50% {
+    box-shadow: 0 14px 30px -4px rgba(184, 115, 32, 0.52), 0 10px 14px -4px rgba(184, 115, 32, 0.3);
+  }
+}
+
+@keyframes subtleFloat {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
+}
+
+.animate-hero-fade-up {
+  animation: heroFadeUp 0.85s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.animate-hero-fade-left {
+  animation: heroFadeLeft 0.85s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.animate-hero-portrait {
+  animation: heroPortraitIn 1.05s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.animate-hero-bg {
+  animation: heroBgFade 1.2s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.animate-gold-line {
+  animation: goldLineExpand 0.9s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.animate-glow-pulse {
+  animation: heroGlowPulse 3.5s ease-in-out infinite;
+}
+
+.animate-subtle-float {
+  animation: subtleFloat 5s ease-in-out infinite;
+}
+
+/* Micro-interaction keyframes for Focus Areas icons */
+@keyframes heartbeat {
+  0%, 100% {
+    transform: scale(1);
+  }
+  15% {
+    transform: scale(1.18);
+  }
+  30% {
+    transform: scale(1);
+  }
+  45% {
+    transform: scale(1.12);
+  }
+  60% {
+    transform: scale(1);
+  }
+}
+
+@keyframes robotNod {
+  0%, 100% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(-6deg) translateY(-2px);
+  }
+  75% {
+    transform: rotate(6deg) translateY(-2px);
+  }
+}
+
+@keyframes growthRise {
+  0%, 100% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(2px, -3px);
+  }
+}
+
+@keyframes megaphoneBlast {
+  0%, 100% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(-5deg) scale(1.05);
+  }
+  75% {
+    transform: rotate(3deg) scale(1.05);
+  }
+}
+
+@keyframes cardShimmerSweep {
+  0% {
+    transform: translateX(-120%) skewX(-20deg);
+  }
+  100% {
+    transform: translateX(220%) skewX(-20deg);
+  }
+}
+
+.group:hover .animate-on-hover-heartbeat {
+  animation: heartbeat 1.1s ease-in-out infinite;
+}
+
+.group:hover .animate-on-hover-robot {
+  animation: robotNod 1s ease-in-out infinite;
+}
+
+.group:hover .animate-on-hover-growth {
+  animation: growthRise 1.2s ease-in-out infinite;
+}
+
+.group:hover .animate-on-hover-megaphone {
+  animation: megaphoneBlast 0.9s ease-in-out infinite;
+}
+
+.group-hover-shimmer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.6), transparent);
+  transform: translateX(-150%) skewX(-20deg);
+  pointer-events: none;
+}
+
+.group:hover .group-hover-shimmer {
+  animation: cardShimmerSweep 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animation-delay-100 { animation-delay: 100ms; }
+.animation-delay-150 { animation-delay: 150ms; }
+.animation-delay-200 { animation-delay: 200ms; }
+.animation-delay-300 { animation-delay: 300ms; }
+.animation-delay-400 { animation-delay: 400ms; }
+.animation-delay-500 { animation-delay: 500ms; }
+.animation-delay-600 { animation-delay: 600ms; }
+.animation-delay-700 { animation-delay: 700ms; }
+.animation-delay-800 { animation-delay: 800ms; }
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
